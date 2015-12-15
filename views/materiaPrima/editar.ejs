@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Materia Prima</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script type="text/javascript">
+    	function listar(){
+    		window.location = "/materia/lista"
+    	}
+	    function menu(){
+	        window.location = '/'
+	    }
+    </script>
+  </head>
+  <body>
+  	<input type="button" onclick="menu()" value="Menu Principal"><br><br>
+  	<input type="button" onclick="listar()" value="Lista">
+  	<h2>Editar matéria</h2>
+  	<form action="/materia/alterar" method="post">
+  	Nome:<br>
+    <input type="text" name="nome" id="nome" value="<%= materia.nome %>"><br>
+    <input type="hidden" name="id" id="id" value="<%= materia.id %>">
+    Preço:<br>
+    <input type="text" name="preco" id="preco" value="<%= materia.preco %>"><br>
+    Descrição:<br>
+    <input type="text" name="descricao" id="descricao" value="<%= materia.descricao %>"><br><br>
+    <input type="submit" value="alterar">
+</form>
+  </body>
+</html>

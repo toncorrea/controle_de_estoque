@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script type="text/javascript">
+    function goToMateria_prima(){
+      window.location = '/materia'
+    }
+    function goToProdutos(){
+      window.location = '/produto'
+    }
+    function goToProdutos_venda(){
+      window.location = '/produtovenda'
+    }
+    </script>
+  </head>
+  <body>
+    <h1>Main Menu</h1>
+    <input type="button" onclick="goToMateria_prima()" value="Matérias Primas">
+    <input type="button" onclick="goToProdutos()" value="Produtos">
+    <input type="button" onclick="goToProdutos_venda()" value="Produtos a venda">
+  </body>
+</html>

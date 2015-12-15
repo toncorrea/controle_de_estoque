@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Produtos Venda</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script type="text/javascript">
+    	function listar(){
+    		window.location = "/produtoVenda/lista"
+    	}
+	    function menu(){
+	        window.location = '/'
+	    }
+    </script>
+  </head>
+  <body>
+  	<input type="button" onclick="menu()" value="Menu Principal"><br><br>
+  	<input type="button" onclick="listar()" value="Lista">
+  	<h2>Produto a venda</h2>
+  	<form action="/produtoVenda/salvar" method="post">
+  	Nome:<br>
+    <input type="text" name="nome" id="nome"><br>
+    Descrição:<br>
+    <input type="text" name="descricao" id="descricao"><br>
+    Preço venda:<br>
+    <input type="text" name="precoVenda" id="precoVenda"><br><br>
+    <input type="submit" value="salvar">
+</form>
+  </body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lista materiasprimas</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script type="text/javascript">
+      function menu(){
+        window.location = '/'
+      }
+      function produtos(){
+        window.location = '/produto'
+      }
+      function buscar(id){
+        c = parseInt(id);
+        window.location = "/produto/buscar?id="+c
+      }
+      function excluir(id){
+        c = parseInt(id);
+        window.location = "/produto/excluir?id="+c
+      }
+    </script>
+  </head>
+  <body>
+    <input type="button" onclick="menu()" value="Menu Principal"><br><br>
+    <input type="button" onclick="produtos()" value="<<">
+    <h2>Lista de produtos</h2>
+    <p><%= quantidade %> produto(s) registrados <p>
+    <table id="produtos" border="5" cellspacing="2" cellpadding="8">
+      <% if(produtos.length > 0){ %>
+      <tr>
+        <td>Nome</td>
+        <td>Descrição</td>
+      </tr>
+      <% for(i=0; i<produtos.length; i++){ %>
+        <% var a = produtos[i] %>
+        <tr>
+          <td><%= a.nome %></td>
+          <td><%= a.descricao %></td>
+          <td><a href="javascript:void(0)" onclick="buscar(<%= a.id %>);">Editar</a></td>
+          <td><a href="javascript:void(0)" onclick="excluir(<%= a.id %>);">Excluir</a></td>
+        </tr>
+      <% } %>
+      <% } else { %>
+        Nenhum dado cadastrado
+      <% } %>
+    </table>
+  </body>
+</html>
