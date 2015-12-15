@@ -22,7 +22,7 @@ router.get('/produto', function(req, res, next) {
 
 //redirecionar para produtos a venda
 router.get('/produtoVenda', function(req, res, next) {
-  res.render('produtosVenda/produtos_venda');
+  res.render('produtoVenda/produto_venda');
 });
 
 // Rotas INDEX =================================
@@ -197,7 +197,7 @@ router.get('/produtoVenda/lista', function(req, res, next){
   ProdutoVenda.todos(function(rows, err){
     if(err) res.send("Erro ao buscar", 500);
     else{
-      res.render('produtosVenda/lista',{
+      res.render('produtoVenda/lista',{
         produtosVenda: rows,
         quantidade: rows.length
       });
@@ -211,7 +211,7 @@ router.get('/produtoVenda/buscar', function(req, res, next){
     else{
       if(rows.length > 0){
         var c = rows;
-        res.render('produtosVenda/editar',{
+        res.render('produtoVenda/editar',{
           title: 'Alterar produto a venda',
           produtoVenda: c[0]
         });
@@ -231,19 +231,18 @@ router.post('/produtoVenda/alterar', function(req, res, next){
       req.send("Erro ao alterar", 500);
     }
     else{
-      res.redirect('produtoVenda/lista');
+      res.redirect('/produtoVenda/lista');
     }
   });
 });
 
 router.get('/produtoVenda/excluir', function(req, res, next){
-  console.log(req.query.id)
   ProdutoVenda.excluir(req.query.id, function(rows, err){
     if(err){
       req.send("Erro ao alterar", 500);
     }
     else{
-      res.redirect('produtoVenda/lista');
+      res.redirect('/produtoVenda/lista');
     }
   });
 });
